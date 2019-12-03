@@ -1,40 +1,15 @@
-import React from 'react';
-import {Text , TextInput , View , StyleSheet, Button}from 'react-native'
+import React from "react";
+import LogInputs from "../components/logComponents/LogInputs";
+import LogButtons from "../components/logComponents/LogButtons";
+import LogLayout from "../components/logComponents/LogLayout";
 
-const signup= ()=>{
-
-
-    return(
-
-        <View style={style.logStyle}>
-
-        <View>
-        <TextInput placeholder='email'></TextInput>
-        
-        <TextInput placeholder='password'></TextInput>
-
-        </View>
-
-        
-
-         <Button/>
-
-</View>
-    )
-}
-
-const style = StyleSheet.creat({
-
-    logStyle:{
-
-        justifyContent :'center',
-
-},
-     
-       
-    
-
-
-})
+const signup = () => {
+  return (
+    <LogLayout title="USER SIGN UP">
+      <LogInputs />
+      <LogButtons>SIGN UP </LogButtons>
+    </LogLayout>
+  );
+};
 
 export default signup;

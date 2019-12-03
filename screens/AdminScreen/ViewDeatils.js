@@ -6,11 +6,11 @@ import {
   TouchableOpacity,
   ActivityIndicator
 } from "react-native";
-import Card from "../components/Cards";
-import firebase from "../firebase";
-import TextComp from "../components/TextComp";
-import MapView from "../components/MapPreview";
-import Colors from "../Colors";
+import Card from "../../components/Cards";
+import firebase from "../../firebase";
+import TextComp from "../../components/TextComp";
+import MapView from "../../components/MapPreview";
+import Colors from "../../Colors";
 
 const ViewDetails = props => {
   const [data, setData] = useState();

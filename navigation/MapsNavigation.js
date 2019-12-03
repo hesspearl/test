@@ -1,5 +1,5 @@
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import ViewDetails from "../screens/ViewDeatils";
+import ViewDetails from "../screens/AdminScreen/ViewDeatils";
 import FullMapPreview from "../components/FullMapPreview";
 
 const mapNavigation = createStackNavigator(

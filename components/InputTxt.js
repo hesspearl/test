@@ -5,11 +5,12 @@ const InputTxt= props =>{
 return (
 
     <TextInput
+    {...props}
     onChangeText={props.changeText}
     value={props.value}
     returnKeyType={props.returnKeyType}
     onEndEditing={props.onEndEditing}
-       style={styles.textInputDesign}
+       style={{...styles.textInputDesign , ...props.style}}
        />
 
 )

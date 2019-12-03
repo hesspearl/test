@@ -10,7 +10,7 @@ if (Platform.OS==='android'&& Platform.Version>=21){
   return (
     <View style={{...styles.btnWrap, ...props.style}}>
     <ButtonComponent onPress={props.onPress}>
-      <View style={styles.btnContainer}>
+      <View style={{...styles.btnContainer, ...props.btnStyle}}>
         <Text style={styles.btn}>{props.children}</Text>
       </View>
     </ButtonComponent>
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     alignItems:'center',
     justifyContent:'center',
     borderRadius:100,
-    height:110
+    height:100
   },
   btn: {
     fontWeight:'bold',
