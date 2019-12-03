@@ -19,7 +19,7 @@ const Reducer = (state, action) => {
         [action.input]: action.isValid
       };
 
-     
+     console.log(updatedValidities)
 
       let formIsValid = true;
 
@@ -60,23 +60,17 @@ const LogInputs = props => {
   const inputTextHolder = useCallback(
     (inputIdentifier, text ) => {
         
-       
-        if( inputIdentifier==='email'){
-            required=true,
-            email=true
-        }
-       
-       
     const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     
     let isValid = true;
-   /* if (! text.trim().length === 0) {
-      isValid = true;
+   if (text.trim().length === 0) {
+      isValid = false;
     }
-    if (email && emailRegex.test(text.toLowerCase())) {
-      isValid = true;
+    if ( inputIdentifier==='email' && !emailRegex.test(text.toLowerCase())) {
+      isValid = false;
     }
-    */
+    
+    
   
       dispatch({
         type: FORM_UPDATE,
