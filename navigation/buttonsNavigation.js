@@ -22,6 +22,7 @@ const appNavigation = createStackNavigator(
   {
     Login: Login,
     SingUp:signup,
+   
     PickImage: Images,
     ProgressSteps: ProgressSteps,
     MapScreen: MapScreen

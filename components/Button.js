@@ -10,6 +10,7 @@ const [imgUrl, setImgUrl] = useState()
 
   const newReport = () => {
     let nReport;
+
     try {
       nReport = new ReportClass(
         new Date().toString(),
@@ -34,10 +35,12 @@ const [imgUrl, setImgUrl] = useState()
 
     addReport(nReport);
 
-    console.log(nReport.Image);
+  
   };
 
   async function addReport(data ) {
+   const token= firebase.User.getIdToken()
+ console.log(token)
     const ref = firebase.firestore().collection("test");
   const refID = ref.doc().id
   
@@ -62,7 +65,7 @@ firebase.storage().ref().child("image" )
    Image:url
   });
  
-   console.log(url);})
+   })
 
 
 

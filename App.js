@@ -7,13 +7,14 @@ import ReduxThunk from "redux-thunk";
 import { reduxFirestore, getFirestore , firestoreReducer } from "redux-firestore";
 import { reactReduxFirebase, getFirebase } from "react-redux-firebase";
 import firebaseConfig from "./firebase";
-import * as reportAction from "./store/action/report";
+import authReducer from "./store/reducers/auth"
 import { composeWithDevTools } from 'redux-devtools-extension'
 import MapsNavigation from "./navigation/MapsNavigation"
 
 //reducer we are storing
 const rootReducer = combineReducers({
   report: report,
+  auth : authReducer,
   fireStore:firestoreReducer,
 });
 
