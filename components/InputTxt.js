@@ -18,6 +18,7 @@ return (
 
 const styles= StyleSheet.create({
     textInputDesign: {
+        backgroundColor:'#f6f6f6',
         width: 200,
         height: 50,
         borderWidth: 4,

@@ -23,7 +23,8 @@ const AdminLog = props => {
     }
   return (
     <LogLayout
-     title="ADMIN LOG IN">
+     title="ADMIN LOG IN"
+     style={{ borderColor: Colors.subColor}}>
       <LogInputs 
         onInputChange={setInputs}
       />

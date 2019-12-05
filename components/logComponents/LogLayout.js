@@ -1,9 +1,10 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native';
+import Colors from '../../Colors';
 
 const LogLayout= props =>{
 return (
-<View style={styles.logStyle}>
+<View style={{...styles.logStyle,...props.style}}>
 
 <Text style={styles.Title}>{props.title} </Text>
     {props.children}
@@ -13,12 +14,13 @@ return (
 
 const styles= StyleSheet.create({
     logStyle: {
+      backgroundColor:"#eae9e9",
         alignItems: "center",
-        marginTop: 10,
+        marginTop: 30,
         marginBottom: 15,
         paddingTop: 50,
         flex: 1,
-        borderColor: "black",
+        borderColor: Colors.mainColor,
         borderWidth: 3,
         borderRadius: 101,
         overflow: "hidden",

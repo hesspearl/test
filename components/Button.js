@@ -4,8 +4,11 @@ import firebase from "../firebase";
 import ReportClass from "../model/report";
 import ButtonStyle from "../components/ButtonStyle";
 
+import { useSelector } from "react-redux";
+
 const CustomButton = props => {
 
+  const   userId = useSelector(state => state.auth.userId)
 const [imgUrl, setImgUrl] = useState()
 
   const newReport = () => {
@@ -13,7 +16,7 @@ const [imgUrl, setImgUrl] = useState()
 
     try {
       nReport = new ReportClass(
-        new Date().toString(),
+       userId,
         props.report.report,
         props.report.newLocation.location,
         props.report.pageOne.info1,
@@ -39,8 +42,12 @@ const [imgUrl, setImgUrl] = useState()
   };
 
   async function addReport(data ) {
-   const token= firebase.User.getIdToken()
- console.log(token)
+  firebase.auth().onAuthStateChanged (async (user)=>
+  {
+   if (user){
+
+  
+ 
     const ref = firebase.firestore().collection("test");
   const refID = ref.doc().id
   
@@ -68,8 +75,8 @@ firebase.storage().ref().child("image" )
    })
 
 
-
-
+  }
+  })
  
 
 

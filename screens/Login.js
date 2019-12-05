@@ -47,8 +47,6 @@ const login = props => {
   );
 };
 
-login.navigationOptions = {
-  headerTitle: "User Account"
-};
+
 
 export default login;

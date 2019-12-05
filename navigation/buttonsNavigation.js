@@ -16,13 +16,11 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Colors from "../Colors";
 import {} from "react-native-paper";
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
-import signup from "../screens/sign up";
 
 const appNavigation = createStackNavigator(
   {
-    Login: Login,
-    SingUp:signup,
-   
+ 
+    SingUp:SingUp,
     PickImage: Images,
     ProgressSteps: ProgressSteps,
     MapScreen: MapScreen
@@ -32,7 +30,8 @@ const appNavigation = createStackNavigator(
       headerStyle: {
         backgroundColor: Colors.mainColor
       },
-      headerTintColor: "white"
+      headerTintColor: "white",
+     
     }
     //initialRouteName:'ProgressSteps'
   }
@@ -54,7 +53,7 @@ const AdminNavigator = createStackNavigator(
 );
 const tabScreenCongfig={
     user: {
-      screen: appNavigation,
+      screen: Login,
       navigationOptions: {
         tabBarIcon: tabInfo => {
           return (
@@ -65,12 +64,17 @@ const tabScreenCongfig={
             />
           );
         },
-        tabBarColor:Colors.mainColor
+        tabBarColor:Colors.mainColor,
+        
       }
     },
+mainScreen:{ screen:appNavigation,
+  navigationOptions:{
+    tabBarVisible:false
+  }},
 
     Admin: {
-      screen: AdminNavigator,
+      screen: AdminLogIn,
       navigationOptions: {
         tabBarIcon: tabInfo => {
           return (

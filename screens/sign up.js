@@ -54,5 +54,9 @@ const signup = (props) => {
     </LogLayout>
   );
 };
+signup.navigationOptions = {
+header:null
 
+  
+};
 export default signup;

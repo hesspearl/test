@@ -1,7 +1,7 @@
 import { LOGIN, SIGNUP } from "../action/auth";
 
 const initialState={
-    token: null ,
+    email: null ,
     userId:null
 }
 
@@ -10,12 +10,12 @@ export default( state = initialState , action)=>{
 
         case LOGIN:
             return{
-                token :action.token,
+                email :action.email,
                 userId:action.userId
             }
 
             case SIGNUP:return{
-                token :action.token,
+                email :action.email,
                 userId:action.userId
             }
             default:

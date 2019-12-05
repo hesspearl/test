@@ -1,23 +1,22 @@
 export const SIGNUP="SIGNUP"
 export const LOGIN="LOGIN"
+import firebase from "../../firebase";
+import { firestore } from "firebase";
+
 
 export const signup = (email , password)=>{
     return async dispatch => {
-     const response=  await fetch("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC7Y1RFQHnZlNvjpldmzXPBS6eKx3xbEWU"
-        , {
-            method:'POST',
-            headers:{
-                'content-type':'application/json'
-            },
-            body:JSON.stringify({
-                email:email,
-                password:password,
-                returnSecureToken:true
-            })
-           
-
+        const response = await firebase.auth().createUserWithEmailAndPassword(email, password)
+        if (response.user.uid) {
+            const user = {
+                uid: response.user.uid,
+                email: email
             }
-        )
+
+            await firestore.collection('users')
+                .doc(response.user.uid)
+                .set(user)
+        }
 
         if(!response.ok){
          
@@ -34,32 +33,26 @@ export const signup = (email , password)=>{
     
             }
 
-        const resData=await response.json()
-        console.log (resData)
         dispatch ({type:SIGNUP ,
-        token: resData.idToken,
-    userId:resData.localId})
+            uid: response.user.uid,
+            email: email})
     }
 }
 
 export const login = (email , password)=>{
     return async dispatch => {
-     const response=  await fetch("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyC7Y1RFQHnZlNvjpldmzXPBS6eKx3xbEWU"
-        , {
-            method:'POST',
-            headers:{
-                'content-type':'application/json'
-            },
-            body:JSON.stringify({
-                email:email,
-                password:password,
-                returnSecureToken:true
-            })
-           
+        
+        const response = await firebase.auth().signInWithEmailAndPassword(email,password)
+    
+ const resData= await firebase.firestore().collection('users')
+                .doc(response.user.uid)
+                .get()
 
-            }
-        )
+                console.log(resData.currentUser.email)
 
+                dispatch ({type:LOGIN ,token: resData.data().email,
+                    userId:resData.data().userId})
+      
         if(!response.ok){
          
         let errMessage='something went wrong';
@@ -77,10 +70,7 @@ export const login = (email , password)=>{
 
         }
 
-        const resData=await response.json()
-
-        console.log (resData)
-        dispatch ({type:LOGIN ,token: resData.idToken,
-            userId:resData.localId})
+       
+        
     }
 }
