@@ -11,6 +11,9 @@ import firebase from "../../firebase";
 import TextComp from "../../components/TextComp";
 import MapView from "../../components/MapPreview";
 import Colors from "../../Colors";
+import useBackButton from '../../hook/useBackButton'
+
+
 
 const ViewDetails = props => {
   const [data, setData] = useState();
@@ -18,7 +21,9 @@ const ViewDetails = props => {
   const [isFetching, setIsFetching] = useState(false);
   const [selctedMap, setSelectedMap] = useState();
 
+  useBackButton()
 
+ 
 
   const docData = [];
 

@@ -19,9 +19,9 @@ import { createMaterialBottomTabNavigator } from "react-navigation-material-bott
 
 const appNavigation = createStackNavigator(
   {
- 
-    SingUp:SingUp,
     PickImage: Images,
+    SingUp:SingUp,
+    view: ViewDetails,
     ProgressSteps: ProgressSteps,
     MapScreen: MapScreen
   },
@@ -70,7 +70,12 @@ const tabScreenCongfig={
     },
 mainScreen:{ screen:appNavigation,
   navigationOptions:{
-    tabBarVisible:false
+    tabBarVisible:false,
+    
+    tabBarColor:Colors.mainColor,
+    title:"",
+  
+
   }},
 
     Admin: {

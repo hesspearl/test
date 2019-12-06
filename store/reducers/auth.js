@@ -1,4 +1,4 @@
-import { LOGIN, SIGNUP } from "../action/auth";
+import { LOGIN, SIGNUP, ADMIN } from "../action/auth";
 
 const initialState={
     email: null ,
@@ -18,6 +18,11 @@ export default( state = initialState , action)=>{
                 email :action.email,
                 userId:action.userId
             }
+            case ADMIN:
+                return{
+                    email :action.email,
+                    userId:action.userId
+                }
             default:
                 return state
     }

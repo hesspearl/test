@@ -1,12 +1,18 @@
 import React , {useState, useEffect}from "react";
-import { ActivityIndicator , Alert}from 'react-native'
+import {
+   ActivityIndicator ,
+   Alert , 
+   Text ,
+    TouchableOpacity ,
+     View ,
+      StyleSheet}from 'react-native'
 import LogInputs from "../components/logComponents/LogInputs";
 import LogButtons from "../components/logComponents/LogButtons";
 import LogLayout from "../components/logComponents/LogLayout";
 import {useDispatch} from 'react-redux';
 import * as authActions from '../store/action/auth'
 import Colors from '../Colors'
-
+import useBackButton from "../hook/useBackButton"
 
 
 const signup = (props) => {
@@ -20,6 +26,7 @@ const signup = (props) => {
         if (error) Alert.alert("An Error ", error, [{ text: "ok" }]);
       }, [error]);
 
+      useBackButton()
 
     const signupHandler= async ()=>{
     
@@ -30,7 +37,7 @@ const signup = (props) => {
             inputs.email,
             inputs.password
          ));
-      props.navigation.navigate("PickImag");
+      props.navigation.navigate("PickImage");
     } catch (err) {
       setError(err.message);
       setIsLoading(false);
@@ -51,6 +58,15 @@ const signup = (props) => {
       ) : (
         <LogButtons onPress={signupHandler}>LOG IN</LogButtons>
       )}
+      <TouchableOpacity
+      onPress={()=>props.navigation.navigate("user")}>
+      <View style={styles.contain}>  
+       <Text
+       style = {styles.text}> return</Text>
+       </View>
+
+     
+      </TouchableOpacity>
     </LogLayout>
   );
 };
@@ -59,4 +75,19 @@ header:null
 
   
 };
+
+const styles= StyleSheet.create({
+
+  contain:{
+    justifyContent:'flex-end',
+    alignItems:'center'
+  },
+
+  text:{
+    color:Colors.mainColor,
+    fontSize:20
+
+  }
+
+})
 export default signup;

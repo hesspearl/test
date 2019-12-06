@@ -1,11 +1,14 @@
 import React, { useState, useCallback, useEffect } from "react";
-import { View, Button, Text, Image, StyleSheet, Alert } from "react-native";
+import { View,
+  BackHandler , StyleSheet, Alert } from "react-native";
 import * as permissions from "expo-permissions";
 import { useSelector, useDispatch } from "react-redux";
 import * as ImagePicker from "expo-image-picker";
 import * as reportActions from "../store/action/report";
 import MainButton from "../components/MainButton";
 import firebase from "../firebase";
+
+
 
 const Images = props => {
 
@@ -73,6 +76,10 @@ const Images = props => {
 
 
 
+
+
+ 
+ 
   return (
     <View style={style.ButtonContainer}>
       <MainButton onPress={TakeImage}>Make near miss report</MainButton>
@@ -83,7 +90,8 @@ const Images = props => {
 
 Images.navigationOptions= navData =>{
   return{
-  headerTitle:'Main Page'
+  headerTitle:'Main Page',
+  headerLeft:null
 }}
 
 const style = StyleSheet.create({
