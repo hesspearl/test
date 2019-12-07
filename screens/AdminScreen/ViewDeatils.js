@@ -12,7 +12,8 @@ import TextComp from "../../components/TextComp";
 import MapView from "../../components/MapPreview";
 import Colors from "../../Colors";
 import useBackButton from '../../hook/useBackButton'
-
+import {HeaderButtons , Item} from 'react-navigation-header-buttons'
+import HeaderButton from '../../components/HeaderButton'
 
 
 const ViewDetails = props => {
@@ -154,6 +155,27 @@ const ViewDetails = props => {
     </View>
   );
 };
+
+ViewDetails.navigationOptions=navData=>{
+ return {
+   headerStyle: {
+    backgroundColor: Colors.subColor,
+
+  },
+headerLeft:(
+    <HeaderButtons
+     HeaderButtonComponent={HeaderButton}
+    
+    >
+    <Item
+      title="return"
+      iconName={"back"}
+      onPress={() => {
+      navData.navigation.navigate("Admin")
+      }}
+    />
+  </HeaderButtons>)
+}}
 
 const styles = StyleSheet.create({
   parent: {

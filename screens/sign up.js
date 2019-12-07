@@ -20,7 +20,7 @@ const signup = (props) => {
     const [error, setError] = useState(false);
     const [inputs, setInputs] = useState()
     const dispatch=useDispatch()
-    console.log(inputs)
+   
 
     useEffect(() => {
         if (error) Alert.alert("An Error ", error, [{ text: "ok" }]);

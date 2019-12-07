@@ -2,7 +2,8 @@ import { LOGIN, SIGNUP, ADMIN } from "../action/auth";
 
 const initialState={
     email: null ,
-    userId:null
+    userId:null,
+    password:null
 }
 
 export default( state = initialState , action)=>{
@@ -21,7 +22,7 @@ export default( state = initialState , action)=>{
             case ADMIN:
                 return{
                     email :action.email,
-                    userId:action.userId
+                    password:action.password
                 }
             default:
                 return state

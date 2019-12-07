@@ -17,6 +17,7 @@ import Colors from "../Colors";
 import {} from "react-native-paper";
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
 
+
 const appNavigation = createStackNavigator(
   {
     PickImage: Images,
@@ -72,7 +73,7 @@ mainScreen:{ screen:appNavigation,
   navigationOptions:{
     tabBarVisible:false,
     
-    tabBarColor:Colors.mainColor,
+    tabBarColor:"white",
     title:"",
   
 

@@ -46,7 +46,7 @@ export const login = (email , password)=>{
         const response = await firebase.auth().signInWithEmailAndPassword(email,password)
     try{
   await firebase.firestore().collection('users')
-                .doc(response.user.uid)
+                .where("uid","==",response.user.uid)
                 .get()
 
                 console.log(response)
@@ -76,35 +76,55 @@ export const login = (email , password)=>{
     }
 }
 
+/*
+const filterPass=(doc , password)=>{
+    let pass;
+    if(doc.data().password===password){
+        pass=doc.data().password
+        console.log(pass)
+
+        return pass
+}}
+*/
 export const loginAdmin = (email , password)=>{
-    return async dispatch => {
-        
-        
-    try{
+    return ({type:ADMIN ,email:email,
+        password:password})
+    }
+       
+  
  
   
- const getPassword= await firebase.firestore().collection('admin')
-                .doc(password)
+  /*await firebase.firestore().collection('admin')
+                
+                .get()
+                .then(snapshot=>{
+               (   snapshot.docs.filter(doc =>{
+             const  passW= filterPass(doc, password)*/
+         //    console.log(passW)
+             
+                
+                
+             
+         
+               
+           /*    )
 
-                if(getPassword.isEqual(password))
-               { getPassword.get()}
-               else{
-                throw new Error ("not valid ")
-               }
+                     
+                  
+                    )
+                })
+
+             
 
                 
-
-                dispatch ({type:ADMIN ,email:email,
-                    userId:password})
                 }
         catch(err){
          
         
             throw new Error (err)
 
-        }
+        }*/
 
        
         
-    }
-}
+    
