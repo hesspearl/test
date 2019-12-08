@@ -5,13 +5,14 @@ import firebase from "../../firebase";
 import { firestore } from "firebase";
 
 
-export const signup = (email , password)=>{
+export const signup = (email , password, name)=>{
     return async dispatch => {
         const response = await firebase.auth().createUserWithEmailAndPassword(email, password)
         try {
             const user = {
                 uid: response.user.uid,
-                email: email
+                email: email,
+                name:name
             }
 
             await firebase.firestore().collection('users')
@@ -36,7 +37,9 @@ export const signup = (email , password)=>{
 
         dispatch ({type:SIGNUP ,
             uid: response.user.uid,
-            email: email})
+            email: email,
+            name:name
+        })
     }
 }
 
@@ -52,7 +55,8 @@ export const login = (email , password)=>{
                 console.log(response)
 
                 dispatch ({type:LOGIN ,email:email,
-                    userId:response.user.uid})
+                    userId:response.user.uid,
+                name:response.user.name})
                 }
         catch(err){
          

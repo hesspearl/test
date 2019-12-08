@@ -110,7 +110,7 @@ const LogInputs = props => {
         style={styles.input}
       ></InputTxt>
       {!stateInput.Validities.email && (
-        <Text>please enter a valid email address</Text>
+        <Text>please enter a valid email </Text>
       )}
 
       <InputTxt
@@ -125,7 +125,7 @@ const LogInputs = props => {
         style={styles.input}
       ></InputTxt>
       {!stateInput.Validities.password && (
-        <Text> please enter a valid password address </Text>
+        <Text> please enter a valid password  </Text>
       )}
     </View>
   );

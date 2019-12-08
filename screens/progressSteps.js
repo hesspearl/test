@@ -8,7 +8,7 @@ import { ViewPager } from "rn-viewpager";
 import PageTwo from "../Pages/PageTwo";
 import PageOne from "../Pages/PageOne";
 import { useSelector, useDispatch } from "react-redux";
-import CustomButton from "../components/Button";
+import CustomButton from "../components/ReportButton";
 import {HeaderButtons , Item} from 'react-navigation-header-buttons'
 import HeaderButton from '../components/HeaderButton'
 
@@ -110,7 +110,8 @@ renderViewPagerPage = data => {
   );
 };
 
-ProgressSteps.navigationOptions={
+ProgressSteps.navigationOptions=navData=>{
+  return{
   headerTitle:'Steps',
   headerRight:(
     <HeaderButtons
@@ -121,11 +122,12 @@ ProgressSteps.navigationOptions={
       title="Delete"
       iconName={"trash"}
       onPress={() => {
-      
+      navData.navigation.navigate("PickImage")
       }}
     />
   </HeaderButtons>
   )
+}
 }
 
 const styles = StyleSheet.create({

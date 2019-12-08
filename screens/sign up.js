@@ -13,6 +13,7 @@ import {useDispatch} from 'react-redux';
 import * as authActions from '../store/action/auth'
 import Colors from '../Colors'
 import useBackButton from "../hook/useBackButton"
+import InputTxt from "../components/InputTxt";
 
 
 const signup = (props) => {
@@ -20,6 +21,7 @@ const signup = (props) => {
     const [error, setError] = useState(false);
     const [inputs, setInputs] = useState()
     const dispatch=useDispatch()
+    const [name, setName] = useState("")
    
 
     useEffect(() => {
@@ -35,7 +37,8 @@ const signup = (props) => {
     try {
        await dispatch(authActions.signup(
             inputs.email,
-            inputs.password
+            inputs.password,
+            name
          ));
       props.navigation.navigate("PickImage");
     } catch (err) {
@@ -49,6 +52,18 @@ const signup = (props) => {
 
   return (
     <LogLayout title="USER SIGN UP">
+    <InputTxt
+        changeText={setName}
+        placeholder="Name"
+        keyboardType="default"
+        secureTextEntry
+       
+        autoCapitalize="none"
+        
+        style={styles.input}
+      ></InputTxt>
+     
+
       <LogInputs 
      
       onInputChange={setInputs}
@@ -80,12 +95,20 @@ const styles= StyleSheet.create({
 
   contain:{
     justifyContent:'flex-end',
-    alignItems:'center'
+    alignItems:'center',
+    marginTop:10
   },
 
   text:{
     color:Colors.mainColor,
-    fontSize:20
+    fontSize:20,
+    fontWeight:"bold"
+
+  },
+  input: {
+    width: 350,
+    height: 70,
+    marginTop:30
 
   }
 

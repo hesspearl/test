@@ -1,6 +1,6 @@
 class report{
      constructor(
-         userID,
+         userName,
         Image,
         location,
         info1,
@@ -9,7 +9,7 @@ class report{
         info4,
         info5,
         info6){
-            this.userID=userID// auth
+            this.userName=userName// auth
         
          this.Image=Image
          this.location=location

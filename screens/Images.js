@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import * as ImagePicker from "expo-image-picker";
 import * as reportActions from "../store/action/report";
 import MainButton from "../components/MainButton";
-import firebase from "../firebase";
+import HeaderButton from '../components/HeaderButton'
 
 
 
@@ -91,7 +91,19 @@ const Images = props => {
 Images.navigationOptions= navData =>{
   return{
   headerTitle:'Main Page',
-  headerLeft:null
+  headerLeft:(
+    <HeaderButtons
+     HeaderButtonComponent={HeaderButton}
+    
+    >
+    <Item
+      title="return"
+      iconName={"back"}
+      onPress={() => {
+      navData.navigation.navigate("user")
+      }}
+    />
+  </HeaderButtons>)
 }}
 
 const style = StyleSheet.create({
