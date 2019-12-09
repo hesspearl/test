@@ -77,7 +77,9 @@ const dispatch=useDispatch()
           <PageTwo />
         </View>
       </ViewPager>
-      <CustomButton report={newReportInfo}/>
+      <CustomButton report={newReportInfo}
+        navigation={props.navigation}
+      />
       </View>)
 };
     

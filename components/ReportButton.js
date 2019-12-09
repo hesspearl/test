@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import { Alert } from "react-native";
 import firebase from "../firebase";
 import ReportClass from "../model/report";
@@ -8,6 +8,14 @@ import { useSelector } from "react-redux";
 
 const CustomButton = props => {
   const userName = useSelector(state => state.auth.name);
+ const [isDone, setIsDone] = useState(false)
+ 
+ console.log(isDone)
+
+useEffect(() => {
+  if(isDone)
+  props.navigation.navigate("PickImage")
+}, [isDone])
 
   const newReport = () => {
     let nReport;
@@ -35,6 +43,9 @@ const CustomButton = props => {
     }
 
     addReport(nReport);
+
+ 
+    
   };
 
   async function addReport(data) {
@@ -71,10 +82,10 @@ const CustomButton = props => {
           });
       }
     });
-
-    props.navigation.navigate("PickImage")
     
+    setIsDone(true)
   }
+
 
   return <ButtonStyle title="Done" onSelect={newReport} />;
 };

@@ -16,13 +16,13 @@ const AdminLog = props => {
   const [inputs, setInputs] = useState();
   const dispatch = useDispatch();
   
-
+  console.log(isLoading)
 
   const filterPass=(doc , password)=>{
     let pass;
     if(doc.data().password===password){
         pass=doc.data().password
-        console.log(pass)
+        
 
         return pass
 }}
@@ -55,7 +55,7 @@ const AdminLog = props => {
     //  console.log(inputs.password)
     
     props.navigation.navigate("view");
-  
+    setIsLoading(false)
    }
 
      else{

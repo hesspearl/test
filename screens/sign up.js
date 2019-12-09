@@ -56,7 +56,7 @@ const signup = (props) => {
         changeText={setName}
         placeholder="Name"
         keyboardType="default"
-        secureTextEntry
+        
        
         autoCapitalize="none"
         

@@ -7,7 +7,7 @@ import * as ImagePicker from "expo-image-picker";
 import * as reportActions from "../store/action/report";
 import MainButton from "../components/MainButton";
 import HeaderButton from '../components/HeaderButton'
-
+import {HeaderButtons , Item} from 'react-navigation-header-buttons'
 
 
 const Images = props => {

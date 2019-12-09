@@ -24,7 +24,7 @@ const Cards = props => {
               <Image style={styles.image} source={{ uri: props.image }} />
             </View>
             <View style={styles.details}>
-              <Text style={styles.title}>User ID :{props.userID}</Text>
+              <Text style={styles.title}>User Name :{props.userName}</Text>
               <Text style={styles.report}>
               Report ID: {props.reportId}</Text>
             </View>

@@ -7,9 +7,16 @@ import { firestore } from "firebase";
 
 export const signup = (email , password, name)=>{
     return async dispatch => {
-        const response = await firebase.auth().createUserWithEmailAndPassword(email, password)
-        try {
-            const user = {
+
+      
+        const response = await firebase.auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then(user=>
+            user.user.updateProfile({
+                displayName: name
+            }))
+            try {
+            const userInformation = {
                 uid: response.user.uid,
                 email: email,
                 name:name
@@ -17,7 +24,7 @@ export const signup = (email , password, name)=>{
 
             await firebase.firestore().collection('users')
                 .doc(response.user.uid)
-                .set(user)
+                .set(userInformation)
         }
 
         catch(err){
@@ -52,11 +59,11 @@ export const login = (email , password)=>{
                 .where("uid","==",response.user.uid)
                 .get()
 
-                console.log(response)
+                console.log(response.user)
 
                 dispatch ({type:LOGIN ,email:email,
                     userId:response.user.uid,
-                name:response.user.name})
+                name:response.user.displayName})
                 }
         catch(err){
          

@@ -21,7 +21,8 @@ const ViewDetails = props => {
   const [idInfo, setIdInfo] = useState();
   const [isFetching, setIsFetching] = useState(false);
   const [selctedMap, setSelectedMap] = useState();
-
+  console.log(data)
+  
   useBackButton()
 
  
@@ -36,9 +37,10 @@ const ViewDetails = props => {
 
     await ref.then(snapShot =>
       snapShot.docs.forEach(data => {
+      console.log(data.data().userName)
         docData.push({
           reportId: data.id,
-          userID: data.data().userID,
+          userName: data.data().userName,
           location:data.data().location,
           image: data.data().Image,
           info1: data.data().info1,
@@ -82,13 +84,15 @@ const ViewDetails = props => {
             <FlatList
               data={data}
               keyExtractor={item => item.reportId}
-              renderItem={itemData => (
+              renderItem={itemData => 
+               (
+                
                 <TouchableOpacity
                   onPress={() => getDetails(itemData.item.reportId)}
                 >
                   <Card
                     image={itemData.item.image}
-                    userID={itemData.item.userID}
+                    userName={itemData.item.userName}
                     reportId={itemData.item.reportId}
                   />
                 </TouchableOpacity>
