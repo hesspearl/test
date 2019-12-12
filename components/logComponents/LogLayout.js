@@ -14,7 +14,7 @@ return (
 
 const styles= StyleSheet.create({
     logStyle: {
-      backgroundColor:"#eae9e9",
+      backgroundColor:Colors.backgroundLayout,
         alignItems: "center",
         marginTop: 30,
         marginBottom: 15,

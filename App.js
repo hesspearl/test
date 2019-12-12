@@ -9,6 +9,7 @@ import { reactReduxFirebase, getFirebase } from "react-redux-firebase";
 import firebaseConfig from "./firebase";
 import authReducer from "./store/reducers/auth"
 import { composeWithDevTools } from 'redux-devtools-extension'
+import FullMapp from "./components/FullMapPreview"
 import MapsNavigation from "./navigation/MapsNavigation"
 
 //reducer we are storing
@@ -36,9 +37,9 @@ export default function main() {
 
   return (
 
-  //  <MapsNavigation/>
-    <Provider store={store}>
+    <MapsNavigation/>
+  /*  <Provider store={store}>
       <ButtonsNav />
-    </Provider>
+    </Provider>*/
   );
 }

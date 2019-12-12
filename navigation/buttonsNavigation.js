@@ -9,6 +9,7 @@ import Images from "../screens/Images";
 import ProgressSteps from "../screens/progressSteps";
 import MapScreen from "../screens/MapSceen";
 import Login from "../screens/Login";
+import viewMap from "../components/FullMapPreview"
 import SingUp from '../screens/sign up'
 import AdminLogIn from "../screens/AdminScreen/AdminLogIn";
 import ViewDetails from "../screens/AdminScreen/ViewDeatils";
@@ -24,7 +25,8 @@ const appNavigation = createStackNavigator(
     SingUp:SingUp,
     view: ViewDetails,
     ProgressSteps: ProgressSteps,
-    MapScreen: MapScreen
+    MapScreen: MapScreen,
+    viewMap:viewMap
   },
   {
     defaultNavigationOptions: {
@@ -33,8 +35,8 @@ const appNavigation = createStackNavigator(
       },
       headerTintColor: "white",
      
-    }
-    //initialRouteName:'ProgressSteps'
+    },
+    
   }
 );
 

@@ -1,47 +1,44 @@
-import React from "react";
-import { View, Image, StyleSheet } from "react-native";
+import React ,{useEffect} from "react";
+import { Text } from "react-native";
 import env from "../envOfMapKey";
-import Colors from '../Colors'
+import {Callout } from "react-native-maps"
 
 const MapPreview = props => {
-  let imagePreviewUrl;
+  let geoLocation
 
+  useEffect(() => {
+    if(props.location)
+
+    getLocation()
+  }, [])
  
 
-  if (props.location) {
-   //needs API key active to show image 
-    imagePreviewUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${props.location.lat},${props.location.lng}&zoom=14&size=400x300&maptype=roadmap&markers=color:red%7Clabel:A%7C${props.location.lat},${props.location.lng}&key=${env.googleApiKey}`;
+ const getLocation=async()=>{
+ 
 
+    const response= await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${props.location.lat},${props.location.lng}
+     &key=${env.googleApiKey}`)
 
+const resData= await response.json()
 
-console.log(imagePreviewUrl)
+     console.log(resData)
+     if(!resData.results){
+         throw new Error("something Wrong")
+     }
+ //  geoLocation= response.results[0].formatted_address
+   
+   
   }
+  
 
   return (
-    <View  style={styles.mapPreview}>
-      {props.location ? (
-        <Image style={styles.mapImage} source={{ uri: imagePreviewUrl }} />
-      ) : (
-        props.children
-      )}
-    </View>
+    <Callout>
+         
+    <Text> Report location  ${geoLocation} </Text>
+  </Callout>
   );
 };
 
-const styles = StyleSheet.create({
-  mapPreview: {
-    justifyContent: "center",
-    alignItems: "center",
-  flex:1,
-    
-      borderColor: Colors.border,
-      borderWidth: 1
-  },
-  mapImage: {
-    width:'100%',
-    height:'100%',
-  }
-  
-});
+
 
 export default MapPreview;

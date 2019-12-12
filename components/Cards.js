@@ -19,7 +19,7 @@ const Cards = props => {
     <View style={styles.product}>
       <View style={styles.touchable}>
 
-          <View>
+          <View style={{flexDirection:"row"}}>
             <View style={styles.imageContainer}>
               <Image style={styles.image} source={{ uri: props.image }} />
             </View>
@@ -63,12 +63,14 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: '100%'
+    height: '100%',
+    borderRadius: 50,
   },
   details: {
 
-    padding:5
+    padding:5,
 
+    margin:10
   },
   title: {
 

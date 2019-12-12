@@ -106,13 +106,26 @@ const dispatch=useDispatch()
           latitude:selectedLocation.lat,
           longitude:selectedLocation.lng
       }
-  }
+    }
+      if
+        (pickedLocation){
+        markerCoordinates={
+          latitude:pickedLocation.lat,
+          longitude:pickedLocation.lng
+      
+      }
+    }
+    else{
+       return null
+    }
+
+
   return <MapView 
   style={styles.map} 
   region={mapRegin}
   onPress={selectedLocationHandler} >
    {markerCoordinates && <Marker
-
+  image={require('./../assets/navigation.png')}
       title="Picked Location"
       coordinate={markerCoordinates}
       ></Marker>}

@@ -10,12 +10,12 @@ import {
 import * as Location from "expo-location";
 import * as permissions from "expo-permissions";
 import Colors from '../Colors'
-import ButtonStyle from "../components/ButtonStyle";
-import MapPreview from '../components/MapPreview'
+
 
 const LocationPicker = props => {
   const [pickedLocation, setPickedLocation] = useState();
-  const [isFetching, setIsFetching] = useState(false);
+
+  
 
   console.log(pickedLocation)
   //permission to use map
@@ -51,26 +51,11 @@ const LocationPicker = props => {
         { text: "ok" }
       ]);
     }
-    setIsFetching(false);
+    
   };
 
   
 
-  return (
-    <View style={styles.locationPicker}>
-      
-       <MapPreview 
-       style={styles.mapPreview}
-       location={pickedLocation}
-       >
-       {isFetching ? <ActivityIndicator size="large" /> : <Text>no location</Text>}
-       </MapPreview>
-       <View>
-       <ButtonStyle title="Get User Location" onSelect={getLocationHandler} />
-      <ButtonStyle title="pick on map" onSelect={pickOnMapHandler} />
-      </View>
-    </View>
-  );
 };
 
 const styles = StyleSheet.create({

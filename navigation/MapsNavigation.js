@@ -1,16 +1,17 @@
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import ViewDetails from "../screens/AdminScreen/ViewDeatils";
 import FullMapPreview from "../components/FullMapPreview";
+import Colors from "../Colors"
 
 const mapNavigation = createStackNavigator(
     {
       ViewDeatils:ViewDetails,
-      FullMap:FullMapPreview
+      viewMap:FullMapPreview
     },
     {
       defaultNavigationOptions: {
         headerStyle: {
-          backgroundColor: "#F85C50"
+          backgroundColor: Colors.subColor
         },
         headerTintColor: 'white',
   
