@@ -76,7 +76,7 @@ const FullMapPreview = props => {
     <View style={styles.container}>
       <MapView style={styles.map} region={mapRegin}>
         <Marker
-        image={require('./../assets/navigation.png')}
+        image={require('./../assets/location.png')}
           coordinate={{
             latitude: idInfo.location.lat,
             longitude: idInfo.location.lng
@@ -88,7 +88,7 @@ const FullMapPreview = props => {
          
         </Marker>
     {pickedLocation?   <Marker
-        image={require('./../assets/navigationAdmin.png')}
+        image={require('./../assets/locationAdmin.png')}
           coordinate={{
         latitude:pickedLocation.lat,
         longitude: pickedLocation.lng

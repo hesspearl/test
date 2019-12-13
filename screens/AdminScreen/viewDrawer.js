@@ -7,7 +7,7 @@ import {
   ActivityIndicator
 } from "react-native";
 import TextComp from "../../components/TextComp";
-
+import Drawer from 'react-native-draggable-view'
 import Colors from "../../Colors"
 import BottomDrawer from "rn-bottom-drawer"
 const TAB_BAR_HEIGHT =70;
@@ -33,9 +33,8 @@ const ViewDrawer = props => {
   }
 
 
- 
 
-  return (
+return (
     <View>
       
           
