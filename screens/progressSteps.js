@@ -11,7 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import CustomButton from "../components/ReportButton";
 import {HeaderButtons , Item} from 'react-navigation-header-buttons'
 import HeaderButton from '../components/HeaderButton'
-
+import ButtonStyle from "../components/ButtonStyle"
 
 
 
@@ -77,10 +77,17 @@ const dispatch=useDispatch()
           <PageTwo />
         </View>
       </ViewPager>
+     <View style={styles.buttonContainer}>
       <CustomButton report={newReportInfo}
         navigation={props.navigation}
       />
-      </View>)
+       <ButtonStyle
+       title="change address"
+       onSelect={()=>props.navigation.navigate("changeAddress")}
+      />
+      </View>
+      </View>
+     )
 };
     
 
@@ -160,7 +167,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
- 
+ buttonContainer:{
+  flexDirection:"row",
+  alignItems:"baseline",
+  marginBottom:20
+ }
 });
     
 export default ProgressSteps;

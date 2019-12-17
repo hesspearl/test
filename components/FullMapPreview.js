@@ -94,7 +94,8 @@ const FullMapPreview = props => {
         longitude: pickedLocation.lng
       }}
         >
-          <Callout>
+          <Callout
+          >
          
             <Text> my Location</Text>
           </Callout> 

@@ -24,7 +24,7 @@ const login = props => {
     try {
       await dispatch(authActions.login(inputs.email, inputs.password));
       
-      props.navigation.navigate("PickImage");
+      props.navigation.navigate("MapScreen");
       setIsLoading(false)
     } catch (err) {
       setError(err.message);

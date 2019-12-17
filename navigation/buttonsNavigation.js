@@ -14,6 +14,7 @@ import SingUp from '../screens/sign up'
 import AdminLogIn from "../screens/AdminScreen/AdminLogIn";
 import ViewDetails from "../screens/AdminScreen/ViewDeatils";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import changeAddressMap from "../screens/userScreen/ChangeAddressMap"
 import Colors from "../Colors";
 import {} from "react-native-paper";
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
@@ -21,12 +22,14 @@ import { createMaterialBottomTabNavigator } from "react-navigation-material-bott
 
 const appNavigation = createStackNavigator(
   {
+  
     PickImage: Images,
     SingUp:SingUp,
     view: ViewDetails,
     ProgressSteps: ProgressSteps,
     MapScreen: MapScreen,
-    viewMap:viewMap
+    viewMap:viewMap,
+    changeAddress:changeAddressMap
   },
   {
     defaultNavigationOptions: {
@@ -36,7 +39,7 @@ const appNavigation = createStackNavigator(
       headerTintColor: "white",
      
     },
-    
+     
   }
 );
 

@@ -26,7 +26,7 @@ export default report = (state = initialState, action) => {
       };
 
     case CREATE_REPORT_LOCATION:
-     console.log(action.data)
+     
      const newLocation = action.data;
 
       return {

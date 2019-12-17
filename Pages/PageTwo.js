@@ -117,7 +117,7 @@ const submitHandler = useCallback(() => {
              returnKeyType="next"
                
              />
-            {!stateReport.Validities.enteredInfoFiveInput && <Text> please don't leave it blink </Text>}
+            {!stateReport.Validities.enteredInfoFiveInput }
             <TextInput 
              onChangeText={inputTextHolder.bind(this, "enteredInfoSixInput")}
               value={stateReport.inputValues.enteredInfoSixInput}
@@ -125,7 +125,7 @@ const submitHandler = useCallback(() => {
             onEndEditing={submitHandler}
           
                 />
-          {!stateReport.Validities.enteredInfoSixInput && <Text> please don't leave it blink </Text>}
+          {!stateReport.Validities.enteredInfoSixInput}
             
 
            

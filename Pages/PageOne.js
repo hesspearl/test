@@ -108,7 +108,7 @@ const Inputs = props => {
               returnKeyType="next"
               
             />
-            {!stateReport.Validities.enteredInfoOneInput && <Text> please don't leave it blink </Text>}
+            {!stateReport.Validities.enteredInfoOneInput }
             <TextInput
               onChangeText={inputTextHolder.bind(this, "enteredInfoTwoInput")}
               value={stateReport.inputValues.enteredInfoTwoInput}
@@ -117,7 +117,7 @@ const Inputs = props => {
              
             />
         
-        {!stateReport.Validities.enteredInfoTwoInput && <Text> please don't leave it blink </Text>}
+        {!stateReport.Validities.enteredInfoTwoInput}
             <TextInput
               onChangeText={inputTextHolder.bind(this, "enteredInfoThreeInput")}
               value={stateReport.inputValues.enteredInfoThreeInput}
@@ -125,7 +125,7 @@ const Inputs = props => {
               returnKeyType="next"
             
             /> 
-            {!stateReport.Validities.enteredInfoThreeInput && <Text> please don't leave it blink </Text>}
+            {!stateReport.Validities.enteredInfoThreeInput }
       
             <TextInput
               onChangeText={inputTextHolder.bind(this, "enteredInfoFourInput")}
@@ -133,7 +133,7 @@ const Inputs = props => {
               style={style.textInputDesign}
               onEndEditing={submitHandler}
             />
-             {!stateReport.Validities.enteredInfoFourInput && <Text> please don't leave it blink </Text>}
+             {!stateReport.Validities.enteredInfoFourInput}
           </View>
         </View>
       </ScrollView>
