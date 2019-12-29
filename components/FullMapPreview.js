@@ -4,7 +4,7 @@ import MapView, { Marker, Callout } from "react-native-maps";
 import ViewDrawer from "../screens/AdminScreen/viewDrawer";
 import * as Location from "expo-location";
 import * as permissions from "expo-permissions";
-import MapPreview from "../components/MapPreview"
+
 import Colors from "../Colors"
 
 const FullMapPreview = props => {
@@ -81,10 +81,15 @@ const FullMapPreview = props => {
             latitude: idInfo.location.lat,
             longitude: idInfo.location.lng
           }}
+         
         >
-          <MapPreview
-              location={idInfo.location}
-          />
+
+<Callout
+ onPress={()=>{props.navigation.navigate("ViewPicture",{info:idInfo})}}>
+         
+    <Text> tab to view picrute </Text>
+  </Callout>
+          
          
         </Marker>
     {pickedLocation?   <Marker

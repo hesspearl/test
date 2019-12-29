@@ -112,6 +112,7 @@ const MapScreen = props => {
             title="Picked Location"
             coordinate={markerCoordinates}
             description="tab"
+            showCallout
           >
             <PickImage navigation={props.navigation} />
           </Marker>
@@ -122,10 +123,13 @@ const MapScreen = props => {
   );
 };
 
-MapScreen.navigationOptions = navData => {
+MapScreen.navigationOptions = {
+
+ 
   //const save= navData.navigation.getParam('saveLocation')
-  return {
-    headerLeft: (
+  
+    header:null,
+    /*headerLeft: (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
           title="return"
@@ -135,8 +139,9 @@ MapScreen.navigationOptions = navData => {
           }}
         />
       </HeaderButtons>
-    )
-  };
+    )*/
+  
+  
 };
 
 const styles = StyleSheet.create({

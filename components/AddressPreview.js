@@ -1,9 +1,10 @@
 import React ,{useEffect} from "react";
 import { Text } from "react-native";
 import env from "../envOfMapKey";
-import {Callout } from "react-native-maps"
+import BottomDrawer from "rn-bottom-drawer"
+ import Color from "../Colors"
 
-const MapPreview = props => {
+const AddressPreview = props => {
   let geoLocation
 
   useEffect(() => {
@@ -32,13 +33,19 @@ const resData= await response.json()
   
 
   return (
-    <Callout>
-         
-    <Text> Report location  ${geoLocation} </Text>
-  </Callout>
+<BottomDrawer
+ containerHeight={300}
+        startUp={false}
+        offset={10}
+       >
+        <Text
+        style={{color:Color.subColor }}>
+          address {geoLocation}
+        </Text>  
+          </BottomDrawer>
   );
 };
 
 
 
-export default MapPreview;
+export default AddressPreview;

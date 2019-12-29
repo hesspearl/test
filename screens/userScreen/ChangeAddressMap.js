@@ -68,7 +68,8 @@ const ChangeAddress = props => {
         <Marker
           image={require("./../../assets/navigation.png")}
           title="Picked Location"
-          
+          coordinate={markerCoordinates}
+          description="tab"
         >
           <Callout onPress={saveHandler}>
             <Text> Pick new address</Text>

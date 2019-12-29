@@ -3,8 +3,9 @@ import { Alert } from "react-native";
 import firebase from "../firebase";
 import ReportClass from "../model/report";
 import ButtonStyle from "./ButtonStyle";
-
+import Icons from "react-native-vector-icons/FontAwesome";
 import { useSelector } from "react-redux";
+import Color from "../Colors";
 
 const CustomButton = props => {
   const userName = useSelector(state => state.auth.name);
@@ -87,7 +88,10 @@ useEffect(() => {
   }
 
 
-  return <ButtonStyle title="Done" onSelect={newReport} />;
+  return <ButtonStyle 
+   onSelect={newReport}
+   iconName="chevron-double-right"/>
+   ;
 };
 
 export default CustomButton;

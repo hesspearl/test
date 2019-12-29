@@ -37,12 +37,12 @@ export default function main() {
 
   return (
 
-    //<MapsNavigation/>
-   <Provider store={store}>
     
-    <ButtonsNav />
+   // <MapsNavigation/>
+   <Provider store={store}>
+   <ButtonsNav />
     </Provider>
-    //    
+    //
   
   );
 }

@@ -78,13 +78,15 @@ const dispatch=useDispatch()
         </View>
       </ViewPager>
      <View style={styles.buttonContainer}>
+
+     <ButtonStyle
+      iconName='google-maps'
+       onSelect={()=>props.navigation.navigate("changeAddress")}
+      />
       <CustomButton report={newReportInfo}
         navigation={props.navigation}
       />
-       <ButtonStyle
-       title="change address"
-       onSelect={()=>props.navigation.navigate("changeAddress")}
-      />
+    
       </View>
       </View>
      )
@@ -170,7 +172,8 @@ const styles = StyleSheet.create({
  buttonContainer:{
   flexDirection:"row",
   alignItems:"baseline",
-  marginBottom:20
+  marginBottom:20,
+  marginRight:60
  }
 });
     

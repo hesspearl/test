@@ -13,6 +13,7 @@ import viewMap from "../components/FullMapPreview"
 import SingUp from '../screens/sign up'
 import AdminLogIn from "../screens/AdminScreen/AdminLogIn";
 import ViewDetails from "../screens/AdminScreen/ViewDeatils";
+import ViewPicture from "../screens/ViewPicture"
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import changeAddressMap from "../screens/userScreen/ChangeAddressMap"
 import Colors from "../Colors";
@@ -27,9 +28,10 @@ const appNavigation = createStackNavigator(
     SingUp:SingUp,
     view: ViewDetails,
     ProgressSteps: ProgressSteps,
-    MapScreen: MapScreen,
+    MapScreen:MapScreen,
     viewMap:viewMap,
-    changeAddress:changeAddressMap
+    changeAddress:changeAddressMap,
+    ViewPicture:ViewPicture
   },
   {
     defaultNavigationOptions: {
